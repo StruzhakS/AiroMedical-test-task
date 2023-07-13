@@ -1,0 +1,61 @@
+.listRecipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listRecipesItem {
+  width: 250px;
+  height: 550px;
+  border: 1px solid rgba(195, 193, 193, 0.807);
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: text;
+}
+.imageStyle {
+  margin: 0 auto;
+}
+.textWrapper {
+  height: 120px;
+  cursor: text;
+}
+.beerTitle,
+.beerText {
+  margin-bottom: 5px;
+}
+.linkBeer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(62, 136, 10);
+  transition: 250ms;
+  margin: 0 auto;
+  width: 120px;
+  height: 45px;
+  border-radius: 20px;
+  font-size: 18px;
+}
+.linkBeer:hover {
+  background-color: rgb(215, 191, 4);
+  color: black;
+}

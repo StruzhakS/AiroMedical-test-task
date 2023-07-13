@@ -5,6 +5,6 @@ axios.defaults.baseURL = ' https://api.punkapi.com/v2/beers';
 
 export const getAllRecipesApi = async () => {
   const { data } = await axios();
-  console.log(data);
+  //   console.log(data);
   return data;
 };

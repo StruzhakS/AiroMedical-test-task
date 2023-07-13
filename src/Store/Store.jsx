@@ -2,7 +2,7 @@ import { getAllRecipesApi } from 'Services/services';
 import { useEffect } from 'react';
 import { create } from 'zustand';
 
-export const useBearStore = create(set => ({
+export const useRecipeStore = create(set => ({
   recipes: [],
   addAllRecipes: payload => set({ recipes: [...payload] }),
   //   decreasePopulation: () => set(state => ({ bears: state.bears - 1 })),
@@ -11,7 +11,7 @@ export const useBearStore = create(set => ({
 }));
 
 function Counter() {
-  const { recipes, addAllRecipes } = useBearStore();
+  const { recipes, addAllRecipes } = useRecipeStore();
 
   useEffect(() => {
     const getReceips = async () => {
@@ -20,11 +20,11 @@ function Counter() {
     };
     getReceips();
   }, [addAllRecipes]);
-  console.log(recipes);
+  //   console.log(recipes);
 
   return (
     <ul>
-      {recipes.map((el, i) => (
+      {/* {recipes.map((el, i) => (
         <li key={i}>
           <h3>{el.name}</h3>
           <img src={el.image_url} alt={el.name} width="60px" />
@@ -71,7 +71,7 @@ function Counter() {
               `duration ${el.method.mash_temp[0].duration} minutes.`}
           </p>
         </li>
-      ))}
+      ))} */}
     </ul>
   );
 }
