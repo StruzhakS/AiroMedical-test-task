@@ -4,15 +4,24 @@ import { create } from 'zustand';
 
 export const useRecipeStore = create(set => ({
   recipes: [],
+  recipesToDelete: [],
   addAllRecipes: payload => set({ recipes: [...payload] }),
   //   decreasePopulation: () => set(state => ({ bears: state.bears - 1 })),
+  addRecipesToDelete: payload =>
+    set(state => ({ recipesToDelete: [...state.recipesToDelete, payload] })),
+  removeRecipesToDelete: payload =>
+    set(state => ({
+      recipesToDelete: state.recipesToDelete.filter(el => el !== payload),
+    })),
+  //   removeSelectedRecipes: ,
 
   removeAllBears: () => set({ bears: 0 }),
 }));
 
 function Counter() {
-  const { recipes, addAllRecipes } = useRecipeStore();
-
+  const { recipes, addAllRecipes, recipesToDelete } = useRecipeStore();
+  //   console.log(recipes);
+  console.log(recipesToDelete);
   useEffect(() => {
     const getReceips = async () => {
       const receipsData = await getAllRecipesApi();
@@ -21,6 +30,8 @@ function Counter() {
     getReceips();
   }, [addAllRecipes]);
   //   console.log(recipes);
+
+  //   console.log(recipesToDelete);
 
   return (
     <ul>
