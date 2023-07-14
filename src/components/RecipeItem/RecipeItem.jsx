@@ -11,11 +11,11 @@ const RecipeItem = ({ el, i }) => {
   const [x, setX] = useState(false);
 
   const handleClick = e => {
-    setX(prev => !prev);
     if (e.nativeEvent.button === 0) {
       return;
     } else if (e.nativeEvent.button === 2) {
       e.preventDefault();
+      setX(prev => !prev);
       if (!x) {
         addRecipesToDelete(Number(el.id));
       }
@@ -25,19 +25,19 @@ const RecipeItem = ({ el, i }) => {
     }
   };
 
-  useEffect(() => {
-    setX(false);
-  }, []);
+  //   useEffect(() => {
+  //     setX(false);
+  //   }, []);
 
   return (
     <li
-      style={
-        x
-          ? { backgroundColor: 'rgb(247, 120, 120)' }
-          : { backgroundColor: 'white' }
-      }
+      //   style={
+      //     x
+      //       ? { backgroundColor: 'rgb(247, 120, 120)' }
+      //       : { backgroundColor: 'white' }
+      //   }
       key={i}
-      className={s.listRecipesItem}
+      className={x ? s.listRecipesItemDelete : s.listRecipesItem}
       id={el.id}
       onContextMenu={e => e.preventDefault()}
       onMouseDown={e => handleClick(e)}
@@ -54,9 +54,9 @@ const RecipeItem = ({ el, i }) => {
         <div className={s.textWrapper}>
           <h3 className={s.beerTitle}>{el.name}</h3>
           <p className={s.beerText}>Alcohol by volum {el.abv}</p>
-          <p className={s.beerText} style={{ fontStyle: 'italic' }}>
+          <span className={s.beerText} style={{ fontStyle: 'italic' }}>
             {el.tagline}
-          </p>
+          </span>
         </div>
 
         <div className={s.buttonWrapper}></div>

@@ -15,6 +15,7 @@ const AllRecipes = () => {
 
   const { recipes, addAllRecipes } = useRecipeStore();
   const [page, setPage] = useState(1);
+
   //   console.log(recipes);
   useEffect(() => {
     const getReceips = async () => {
@@ -34,7 +35,7 @@ const AllRecipes = () => {
   return (
     <>
       <ul className={s.listRecipes}>
-        {allRecipes.map((el, i) => (
+        {allRecipes.slice(0, 15).map((el, i) => (
           <RecipeItem el={el} i={i} />
         ))}
       </ul>

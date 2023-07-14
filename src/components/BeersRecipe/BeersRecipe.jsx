@@ -21,7 +21,7 @@ const BeersRecipe = () => {
           Go back
         </NavLink>
         <div className={s.boxWrapper}>
-          <h3>{recipe[0].name}</h3>
+          <h2>{recipe[0].name}</h2>
           <img
             src={recipe[0].image_url ? recipe[0].image_url : imgNotFound}
             alt={recipe[0].name}

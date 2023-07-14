@@ -7,10 +7,25 @@
   list-style: none;
 }
 
+.listRecipesItemDelete {
+  width: calc(100% / 6);
+  min-height: calc(100vh / 2);
+  border: 3px solid rgba(24, 23, 23, 0.807);
+  text-align: center;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(171, 169, 169);
+}
 .listRecipesItem {
-  width: 250px;
-  height: 500px;
-  border: 1px solid rgba(195, 193, 193, 0.807);
+  width: calc(100% / 6);
+  min-height: calc(100vh / 2);
+  border: 1px solid rgba(195, 193, 193, 0.179);
   text-align: center;
   border-radius: 20px;
   text-decoration: none;
@@ -20,6 +35,10 @@
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   cursor: pointer;
   /* background-color: rgb(247, 120, 120); */
+}
+
+.listRecipesItem:hover {
+  background-color: rgba(195, 193, 193, 0.179);
 }
 /* .listRecipesItemDelete {
   width: 250px;
