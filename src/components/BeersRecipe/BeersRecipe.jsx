@@ -2,6 +2,8 @@ import { useRecipeStore } from 'Store/Store';
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import s from './BeersRecipe.module.css';
+import imgNotFound from '../../image/beer.jpg';
+
 const BeersRecipe = () => {
   const [recipe, setRecipe] = useState([]);
   const { id } = useParams();
@@ -21,7 +23,7 @@ const BeersRecipe = () => {
         <div className={s.boxWrapper}>
           <h3>{recipe[0].name}</h3>
           <img
-            src={recipe[0].image_url}
+            src={recipe[0].image_url ? recipe[0].image_url : imgNotFound}
             alt={recipe[0].name}
             width="120px"
             className={s.beerImg}

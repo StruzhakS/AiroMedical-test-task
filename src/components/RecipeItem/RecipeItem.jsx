@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './RecipeItem.module.css';
 import { useRecipeStore } from 'Store/Store';
-
+import imgNotFound from '../../image/beer.jpg';
 const RecipeItem = ({ el, i }) => {
   const addRecipesToDelete = useRecipeStore(state => state.addRecipesToDelete);
   const removeRecipesToDelete = useRecipeStore(
@@ -11,11 +11,11 @@ const RecipeItem = ({ el, i }) => {
   const [x, setX] = useState(false);
 
   const handleClick = e => {
+    setX(prev => !prev);
     if (e.nativeEvent.button === 0) {
       return;
     } else if (e.nativeEvent.button === 2) {
       e.preventDefault();
-      setX(prev => !prev);
       if (!x) {
         addRecipesToDelete(Number(el.id));
       }
@@ -24,6 +24,10 @@ const RecipeItem = ({ el, i }) => {
       }
     }
   };
+
+  useEffect(() => {
+    setX(false);
+  }, []);
 
   return (
     <li
@@ -41,7 +45,7 @@ const RecipeItem = ({ el, i }) => {
       <NavLink to={`recipe/${el.id}`} className={s.linkBeer}>
         <div className={s.imageWrapper}>
           <img
-            src={el.image_url}
+            src={el.image_url ? el.image_url : imgNotFound}
             className={s.imageStyle}
             alt={el.name}
             width="75px"
