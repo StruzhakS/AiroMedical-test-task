@@ -9,7 +9,7 @@
 
 .listRecipesItemDelete {
   width: calc(100% / 6);
-  min-height: calc(100vh / 2);
+  min-height: 470px;
   border: 3px solid rgba(24, 23, 23, 0.807);
   text-align: center;
   border-radius: 20px;
@@ -21,10 +21,12 @@
   cursor: pointer;
   color: white;
   background-color: rgb(171, 169, 169);
+  padding-top: 30px;
 }
+
 .listRecipesItem {
   width: calc(100% / 6);
-  min-height: calc(100vh / 2);
+  min-height: 470px;
   border: 1px solid rgba(195, 193, 193, 0.179);
   text-align: center;
   border-radius: 20px;
@@ -34,26 +36,14 @@
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   cursor: pointer;
-  /* background-color: rgb(247, 120, 120); */
+  padding-top: 30px;
+  background-color: white;
+  opacity: 0.95;
 }
 
 .listRecipesItem:hover {
-  background-color: rgba(195, 193, 193, 0.179);
+  background-color: rgb(237, 236, 236);
 }
-/* .listRecipesItemDelete {
-  width: 250px;
-  height: 500px;
-  border: 1px solid rgba(195, 193, 193, 0.807);
-  text-align: center;
-  border-radius: 20px;
-  text-decoration: none;
-  color: inherit;
-  font-size: 14px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  cursor: pointer;
-  background-color: white;
-} */
 
 .imageWrapper {
   display: flex;
@@ -82,7 +72,4 @@
 .linkBeer:hover {
   background-color: rgb(215, 191, 4);
   color: black;
-}
-.chekBox {
-  display: none;
 }

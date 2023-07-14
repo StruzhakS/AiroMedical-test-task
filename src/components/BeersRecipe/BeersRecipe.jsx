@@ -7,8 +7,8 @@ import imgNotFound from '../../image/beer.jpg';
 const BeersRecipe = () => {
   const [recipe, setRecipe] = useState([]);
   const { id } = useParams();
-  //   console.log(id);
   const allRecipes = useRecipeStore(state => state.recipes);
+
   useEffect(() => {
     const oneRecipe = allRecipes.filter(el => el.id === Number(id));
     setRecipe(oneRecipe);
@@ -17,7 +17,7 @@ const BeersRecipe = () => {
   return (
     recipe.length && (
       <>
-        <NavLink to={'/'} className={s.linkBack}>
+        <NavLink to={'/recipes'} className={s.linkBack}>
           Go back
         </NavLink>
         <div className={s.boxWrapper}>
@@ -36,7 +36,6 @@ const BeersRecipe = () => {
               <span>{el}, </span>
             ))}
           </p>
-          {/* <p>Ingredients: </p> */}
           <span>Hops:</span>{' '}
           <ul>
             {recipe[0].ingredients.hops.map((el, i) => (

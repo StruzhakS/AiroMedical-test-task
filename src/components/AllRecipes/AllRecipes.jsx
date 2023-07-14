@@ -5,6 +5,9 @@ import RecipeItem from 'components/RecipeItem/RecipeItem';
 import { getAllRecipesApi } from 'Services/services';
 
 const AllRecipes = () => {
+  const { recipes, addAllRecipes } = useRecipeStore();
+  const [page, setPage] = useState(1);
+
   const allRecipes = useRecipeStore(state => state.recipes);
 
   const removeSelectedRecipes = useRecipeStore(
@@ -13,10 +16,6 @@ const AllRecipes = () => {
 
   const recipesToDelete = useRecipeStore(state => state.recipesToDelete);
 
-  const { recipes, addAllRecipes } = useRecipeStore();
-  const [page, setPage] = useState(1);
-
-  //   console.log(recipes);
   useEffect(() => {
     const getReceips = async () => {
       const receipsData = await getAllRecipesApi(page);
