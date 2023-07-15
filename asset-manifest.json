@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/airo-medical-test-task/static/css/main.121b33dc.css",
-    "main.js": "/airo-medical-test-task/static/js/main.0daea68e.js",
+    "main.css": "/airo-medical-test-task/static/css/main.6cea2b93.css",
+    "main.js": "/airo-medical-test-task/static/js/main.492d74f8.js",
     "static/media/beers.jpg": "/airo-medical-test-task/static/media/beers.8085adb9a147a53eb4a2.jpg",
     "static/media/beer.jpg": "/airo-medical-test-task/static/media/beer.6cf97aefc3606491468a.jpg",
     "index.html": "/airo-medical-test-task/index.html",
-    "main.121b33dc.css.map": "/airo-medical-test-task/static/css/main.121b33dc.css.map",
-    "main.0daea68e.js.map": "/airo-medical-test-task/static/js/main.0daea68e.js.map"
+    "main.6cea2b93.css.map": "/airo-medical-test-task/static/css/main.6cea2b93.css.map",
+    "main.492d74f8.js.map": "/airo-medical-test-task/static/js/main.492d74f8.js.map"
   },
   "entrypoints": [
-    "static/css/main.121b33dc.css",
-    "static/js/main.0daea68e.js"
+    "static/css/main.6cea2b93.css",
+    "static/js/main.492d74f8.js"
   ]
 }
