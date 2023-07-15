@@ -9,11 +9,11 @@ const RecipeItem = ({ el }) => {
   const removeRecipesToDelete = useRecipeStore(
     state => state.removeRecipesToDelete
   );
-
   const setStatus = useRecipeStore(state => state.setStatus);
 
   const [x, setX] = useState(false);
   const navigate = useNavigate();
+
   const handleClick = e => {
     if (e.nativeEvent.button === 0) {
       return;
@@ -29,23 +29,25 @@ const RecipeItem = ({ el }) => {
     }
   };
 
+  const contextMenu = e => {
+    e.preventDefault();
+    x
+      ? setStatus({ id: el.id, checked: true })
+      : setStatus({ id: el.id, checked: false });
+  };
+
   return (
     <li
       key={el.name}
       className={el.checked ? s.listRecipesItemDelete : s.listRecipesItem}
       id={el.id}
-      onContextMenu={e => {
-        e.preventDefault();
-        x
-          ? setStatus({ id: el.id, checked: true })
-          : setStatus({ id: el.id, checked: false });
-      }}
+      onContextMenu={e => contextMenu(e)}
       onMouseDown={e => handleClick(e)}
       onClick={() => {
         navigate(`${el.id}`);
       }}
     >
-      <div className={s.imageWrapper}>
+      <div>
         <img
           src={el.image_url ? el.image_url : imgNotFound}
           className={s.imageStyle}
@@ -53,7 +55,7 @@ const RecipeItem = ({ el }) => {
           width="75px"
         />
       </div>
-      <div className={s.textWrapper}>
+      <div>
         <h3 className={s.beerTitle}>{el.name}</h3>
         <p className={s.beerText}>Alcohol by volum {el.abv}</p>
         <span className={s.beerText} style={{ fontStyle: 'italic' }}>
