@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/airo-medical-test-task/static/css/main.1553c046.css",
-    "main.js": "/airo-medical-test-task/static/js/main.f98846eb.js",
+    "main.js": "/airo-medical-test-task/static/js/main.d3214d41.js",
     "static/media/beers.jpg": "/airo-medical-test-task/static/media/beers.8085adb9a147a53eb4a2.jpg",
     "static/media/beer.jpg": "/airo-medical-test-task/static/media/beer.6cf97aefc3606491468a.jpg",
     "index.html": "/airo-medical-test-task/index.html",
     "main.1553c046.css.map": "/airo-medical-test-task/static/css/main.1553c046.css.map",
-    "main.f98846eb.js.map": "/airo-medical-test-task/static/js/main.f98846eb.js.map"
+    "main.d3214d41.js.map": "/airo-medical-test-task/static/js/main.d3214d41.js.map"
   },
   "entrypoints": [
     "static/css/main.1553c046.css",
-    "static/js/main.f98846eb.js"
+    "static/js/main.d3214d41.js"
   ]
 }
