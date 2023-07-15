@@ -9,6 +9,9 @@ const RecipeItem = ({ el }) => {
   const removeRecipesToDelete = useRecipeStore(
     state => state.removeRecipesToDelete
   );
+
+  const setStatus = useRecipeStore(state => state.setStatus);
+
   const [x, setX] = useState(false);
   const navigate = useNavigate();
   const handleClick = e => {
@@ -29,9 +32,14 @@ const RecipeItem = ({ el }) => {
   return (
     <li
       key={el.name}
-      className={x ? s.listRecipesItemDelete : s.listRecipesItem}
+      className={el.checked ? s.listRecipesItemDelete : s.listRecipesItem}
       id={el.id}
-      onContextMenu={e => e.preventDefault()}
+      onContextMenu={e => {
+        e.preventDefault();
+        x
+          ? setStatus({ id: el.id, checked: true })
+          : setStatus({ id: el.id, checked: false });
+      }}
       onMouseDown={e => handleClick(e)}
       onClick={() => {
         navigate(`${el.id}`);
