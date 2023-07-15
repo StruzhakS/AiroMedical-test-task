@@ -1,37 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from './RecipeItem.module.css';
 import { useRecipeStore } from 'Store/Store';
 import imgNotFound from '../../image/beer.jpg';
 
 const RecipeItem = ({ el }) => {
-  const addRecipesToDelete = useRecipeStore(state => state.addRecipesToDelete);
-  const removeRecipesToDelete = useRecipeStore(
-    state => state.removeRecipesToDelete
-  );
   const setStatus = useRecipeStore(state => state.setStatus);
 
-  const [x, setX] = useState(false);
   const navigate = useNavigate();
-
-  const handleClick = e => {
-    if (e.nativeEvent.button === 0) {
-      return;
-    } else if (e.nativeEvent.button === 2) {
-      e.preventDefault();
-      setX(prev => !prev);
-      if (!x) {
-        addRecipesToDelete(Number(el.id));
-      }
-      if (x) {
-        removeRecipesToDelete(Number(el.id));
-      }
-    }
-  };
 
   const contextMenu = e => {
     e.preventDefault();
-    x
+    !el.checked
       ? setStatus({ id: el.id, checked: true })
       : setStatus({ id: el.id, checked: false });
   };
@@ -39,10 +19,11 @@ const RecipeItem = ({ el }) => {
   return (
     <li
       key={el.name}
-      className={el.checked ? s.listRecipesItemDelete : s.listRecipesItem}
+      className={
+        el.checked === true ? s.listRecipesItemDelete : s.listRecipesItem
+      }
       id={el.id}
       onContextMenu={e => contextMenu(e)}
-      onMouseDown={e => handleClick(e)}
       onClick={() => {
         navigate(`${el.id}`);
       }}

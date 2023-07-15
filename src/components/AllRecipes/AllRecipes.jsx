@@ -12,8 +12,7 @@ const AllRecipes = () => {
     state => state.removeSelectedRecipes
   );
 
-  const recipesToDelete = useRecipeStore(state => state.recipesToDelete);
-
+  const arrayForDelteBtn = allRecipes.filter(el => el.checked);
   return (
     <>
       <ToastContainer
@@ -34,7 +33,7 @@ const AllRecipes = () => {
         ))}
       </ul>
 
-      {recipesToDelete.length > 0 && (
+      {arrayForDelteBtn.length > 0 && (
         <button
           onClick={() => {
             removeSelectedRecipes();

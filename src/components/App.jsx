@@ -10,7 +10,7 @@ import { notify } from 'Helpers';
 export const App = () => {
   const [page, setPage] = useState(1);
   const { recipes, addAllRecipes } = useRecipeStore();
-
+  // console.log(recipes);
   useEffect(() => {
     const getReceips = async () => {
       try {

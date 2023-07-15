@@ -2,7 +2,6 @@ import { create } from 'zustand';
 
 export const useRecipeStore = create(set => ({
   recipes: [],
-  recipesToDelete: [],
   addAllRecipes: payload =>
     set({ recipes: payload.map(el => ({ ...el, checked: false })) }),
   setStatus: payload =>
@@ -12,17 +11,12 @@ export const useRecipeStore = create(set => ({
       ),
     })),
   addRecipesToDelete: payload =>
-    set(state => ({ recipesToDelete: [...state.recipesToDelete, payload] })),
-  removeRecipesToDelete: payload =>
     set(state => ({
-      recipesToDelete: state.recipesToDelete.filter(el => el !== payload),
+      recipesToDelete: state.recipes.filter(el => el.checked),
     })),
   removeSelectedRecipes: () =>
     set(state => ({
-      recipes: state.recipes.filter(
-        ({ id }) => !state.recipesToDelete.includes(id)
-      ),
-      recipesToDelete: [],
+      recipes: state.recipes.filter(el => !el.checked),
     })),
 
   removeAllBears: () => set({ bears: 0 }),
