@@ -15,11 +15,11 @@ const BeersRecipe = () => {
   }, [allRecipes, id]);
 
   return (
-    recipe.length && (
-      <>
-        <NavLink to={'/recipes'} className={s.linkBack}>
-          Go back
-        </NavLink>
+    <>
+      <NavLink to={'/recipes'} className={s.linkBack}>
+        Go back
+      </NavLink>
+      {recipe.length > 0 && (
         <div className={s.boxWrapper}>
           <h2>{recipe[0].name}</h2>
           <img
@@ -49,8 +49,8 @@ const BeersRecipe = () => {
           </ul>
           <span>Malt:</span>{' '}
           <ul>
-            {recipe[0].ingredients.malt.map(el => (
-              <li key={el.id}>
+            {recipe[0].ingredients.malt.map((el, i) => (
+              <li key={i}>
                 <span>
                   {el.name} - {el.amount.value} {el.amount.unit}
                 </span>
@@ -71,8 +71,8 @@ const BeersRecipe = () => {
               `duration ${recipe[0].method.mash_temp[0].duration} minutes.`}
           </p>
         </div>
-      </>
-    )
+      )}
+    </>
   );
 };
 

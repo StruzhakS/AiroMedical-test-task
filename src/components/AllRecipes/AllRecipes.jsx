@@ -3,8 +3,24 @@ import React, { useEffect, useState } from 'react';
 import s from './AllRecipes.module.css';
 import RecipeItem from 'components/RecipeItem/RecipeItem';
 import { getAllRecipesApi } from 'Services/services';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AllRecipes = () => {
+  const notify = () =>
+    toast.info(
+      'To delete a recipe, right-click on it and then click the delete button',
+      {
+        position: 'top-center',
+        autoClose: 4000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      }
+    );
   const { recipes, addAllRecipes } = useRecipeStore();
   const [page, setPage] = useState(1);
 
@@ -31,13 +47,32 @@ const AllRecipes = () => {
     }
   }, [page]);
 
+  useEffect(() => {
+    recipes.length === 25 && page === 1 && notify();
+  }, [page, recipes.length]);
+
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
       <ul className={s.listRecipes}>
         {allRecipes.slice(0, 15).map((el, i) => (
           <RecipeItem el={el} i={i} />
         ))}
       </ul>
+      {/* <Outlet /> */}
+
       {recipesToDelete.length > 0 && (
         <button
           onClick={() => {
